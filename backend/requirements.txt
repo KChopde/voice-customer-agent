@@ -1,0 +1,11 @@
+fastapi==0.115.0
+uvicorn[standard]==0.30.6
+sqlalchemy==2.0.34
+pydantic==2.9.2
+requests==2.32.3
+python-multipart==0.0.10
+
+# Optional: only needed if you want server-side speech-to-text with Whisper.
+# By default the frontend uses the browser's built-in SpeechRecognition (free, no install).
+# Uncomment the lines below if you want to use faster-whisper as a fallback STT engine.
+# faster-whisper==1.0.3

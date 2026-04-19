@@ -1,0 +1,113 @@
+{
+  "_doc": "Declarative task-type registry. Add, edit, or remove entries here without touching Python code. The AI uses this list to decide which task type fits the user's request and what fields it still needs to collect. If the AI sees a request that fits NONE of these, it can propose a brand-new task type on the fly - the generic handler will capture it as an inquiry.",
+
+  "task_types": [
+    {
+      "name": "book_order",
+      "label": "Book an order",
+      "description": "User wants to place a new order for a product.",
+      "required_fields": ["product", "quantity", "address"],
+      "field_prompts": {
+        "product": "What product would you like to order?",
+        "quantity": "How many would you like?",
+        "address": "What's the delivery address?"
+      },
+      "examples": [
+        "I want to order 2 pizzas",
+        "Book me a large coffee to 21 Oak Street",
+        "Place an order for 3 t-shirts"
+      ],
+      "keywords": ["order", "book", "buy", "purchase"]
+    },
+    {
+      "name": "raise_complaint",
+      "label": "Raise a complaint",
+      "description": "User wants to file a complaint about an order, product, or service.",
+      "required_fields": ["order_id", "issue"],
+      "field_prompts": {
+        "order_id": "Could you tell me the order id?",
+        "issue": "Please describe the issue you're facing."
+      },
+      "examples": [
+        "My order arrived damaged",
+        "I want to complain about order 12",
+        "The food was cold"
+      ],
+      "keywords": ["complain", "complaint", "issue", "problem", "damaged", "broken", "wrong"]
+    },
+    {
+      "name": "give_feedback",
+      "label": "Give feedback",
+      "description": "User wants to share feedback or rate the service.",
+      "required_fields": ["rating", "message"],
+      "field_prompts": {
+        "rating": "On a scale of 1 to 5, how would you rate us?",
+        "message": "What feedback would you like to share?"
+      },
+      "examples": [
+        "I want to give 5 stars",
+        "Your service was great",
+        "I'd like to share feedback"
+      ],
+      "keywords": ["feedback", "rating", "rate", "stars", "review"]
+    },
+    {
+      "name": "check_order_status",
+      "label": "Check order status",
+      "description": "User wants to know the status of an existing order.",
+      "required_fields": ["order_id"],
+      "field_prompts": {
+        "order_id": "Which order id would you like to check?"
+      },
+      "examples": [
+        "What's the status of order 7?",
+        "Where is my order?"
+      ],
+      "keywords": ["status", "where is my order"]
+    },
+    {
+      "name": "cancel_order",
+      "label": "Cancel an order",
+      "description": "User wants to cancel an existing order.",
+      "required_fields": ["order_id"],
+      "field_prompts": {
+        "order_id": "Which order id should I cancel?"
+      },
+      "examples": [
+        "Cancel order 5",
+        "I want to cancel my order"
+      ],
+      "keywords": ["cancel"]
+    },
+    {
+      "name": "track_delivery",
+      "label": "Track delivery",
+      "description": "User wants live tracking info for a delivery.",
+      "required_fields": ["order_id"],
+      "field_prompts": {
+        "order_id": "Which order id should I track?"
+      },
+      "examples": [
+        "Track delivery 9",
+        "Where is the delivery driver?"
+      ],
+      "keywords": ["track", "delivery", "deliver", "driver"]
+    },
+    {
+      "name": "general_inquiry",
+      "label": "General question or other request",
+      "description": "User is asking a general question, having casual conversation, or making a request that does not fit any other task type. Use this for FAQs, hours, location, refund policy, payment methods, or anything not covered above.",
+      "required_fields": ["question"],
+      "field_prompts": {
+        "question": "What would you like to know?"
+      },
+      "examples": [
+        "What are your business hours?",
+        "Do you accept credit cards?",
+        "Where are you located?",
+        "Tell me about your return policy"
+      ],
+      "keywords": []
+    }
+  ]
+}

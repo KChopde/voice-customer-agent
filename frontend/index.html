@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="theme-color" content="#0b1020" />
+    <title>Talk to Support — Voice AI Agent</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="topbar">
+        <div class="brand">
+          <span class="dot"></span>
+          <span>Voice Support</span>
+        </div>
+        <div class="status" id="status">
+          <span class="pill" id="enginePill">checking…</span>
+          <button class="ghost" id="resetBtn" title="Start over">Reset</button>
+        </div>
+      </header>
+
+      <main class="chat" id="chat" aria-live="polite">
+        <div class="welcome">
+          <h1>How can I help today?</h1>
+          <p>Tap the mic and speak naturally — I can place an order, raise a complaint, take feedback, or check an order status.</p>
+          <div class="chips">
+            <button class="chip" data-say="I want to order 2 pizzas to 21 Oak Street">Book an order</button>
+            <button class="chip" data-say="I want to raise a complaint about order 1">Raise complaint</button>
+            <button class="chip" data-say="I want to give feedback, 5 stars, great service">Give feedback</button>
+            <button class="chip" data-say="What's the status of order 1?">Check status</button>
+            <button class="chip" data-say="What are your business hours?">Ask a question</button>
+          </div>
+        </div>
+      </main>
+
+      <footer class="composer">
+        <div class="transcript" id="transcript">&nbsp;</div>
+        <div class="controls">
+          <button class="mic" id="micBtn" aria-label="Tap to speak">
+            <span class="ring"></span>
+            <svg viewBox="0 0 24 24" width="32" height="32" aria-hidden="true">
+              <path
+                fill="currentColor"
+                d="M12 14a3 3 0 0 0 3-3V6a3 3 0 1 0-6 0v5a3 3 0 0 0 3 3zm5-3a5 5 0 0 1-10 0H5a7 7 0 0 0 6 6.92V21h2v-3.08A7 7 0 0 0 19 11h-2z"
+              />
+            </svg>
+          </button>
+          <form class="textbar" id="textForm" autocomplete="off">
+            <input id="textInput" type="text" placeholder="…or type your message" />
+            <button type="submit" aria-label="Send">Send</button>
+          </form>
+        </div>
+        <div class="hint" id="hint">Tap the mic to start speaking</div>
+      </footer>
+    </div>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>
